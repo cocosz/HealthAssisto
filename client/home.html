@@ -1,0 +1,627 @@
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+  <script src="https://smtpjs.com/v3/smtp.js">
+  </script>
+  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel='stylesheet'
+    href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css'
+    type='text/css' />
+  <style>
+    #instructions {
+      position: -webkit-sticky;
+      margin: 20px;
+      width: 10%;
+
+      height: fit-content;
+      width: fit-content;
+      bottom: 20%;
+      padding: 20px;
+      background-color: rgb(125, 238, 176);
+      /* overflow-y: scroll; */
+      font-family: sans-serif;
+    }
+  </style>
+  <title>Health Assisto</title>
+</head>
+
+<body>
+  <!--navigation bar-->
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #98cbf0;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./index.html"><img src="user.png" alt="logo" width="70"
+          class="d-inline-block align-text-middle"> <b><i>Bhaskar Pal</i></b>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Explore Here" aria-label="Search"><a class="nav-link" href="sign-in.html">
+          <button class="btn btn-success" type="submit" >SignIn</button></a>
+        </form>
+      </div>
+    </div>
+  </nav>
+  </b>
+
+  <!--alert-->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path
+        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+    </symbol>
+    <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path
+        d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+    </symbol>
+  </svg>
+
+  <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert">
+    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+      <use xlink:href="#check-circle-fill" />
+    </svg>
+    <div>
+      <strong>Feeling stressed or sad? Not sure whom to consult?</strong> Consult Health eCounsellor. Click on the
+      green chat bot.
+    </div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+  <!--carousel-->
+
+  <!--body-->
+
+  <h2 class="overflow-hidden">&nbsp&nbspHealth Tracker</h2>
+
+  <div class="container">
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h3 class="featurette-heading"><span class="text-muted">- A community consisting of Doctors,
+            Counsellors and Student Guides.
+          </span>
+        </h3>
+        <p class="lead">We are here to help you get over any kind of health related problems. You can
+          discuss your worries to our experts and get one-to-one counselling sessions.
+        <p>Go on to our Health-eConnect app to interact with our health advisers.</p>
+        <p> In case you yourself or any friend
+          of yours need help please talk to our Health eConnector (green chatbot on your right). You will be
+          adviced to
+          follow a channel in our Health-eConnect app set to meet your needs and get you going.
+        </p>
+        <p>Also you can use our <a href="https://ju-emeet.herokuapp.com/"
+            style="text-decoration: none; font-size: 22px;"><i>eMeet</i></a> app to connect with specialist.
+            You have to pay for this service <button class="btn btn-success"><a href="http://localhost:5500/client"
+              type="_blank" style="color: white; text-decoration-line: none;"> Pay Here</a> </button>
+        </p>
+        <br>
+        <button class="btn btn-success btn-lg my-2" type="button"><a href="https://health-chat-f5faa.web.app/"
+            type="_blank" style="color: white; text-decoration-line: none;">Health Connect</a></button>
+
+      </div>
+      <div class="col-md-5">
+        <img src="banner.jpeg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="1000">
+        <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500"
+        xmlns="./about-us.jfif" role="img" aria-label="Placeholder: 500x500"
+        preserveAspectRatio="xMidYMid slice" focusable="false"> -->
+
+        <!-- <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text> -->
+
+      </div>
+    </div>
+
+
+    <!-- /END THE FEATURETTES -->
+  </div>
+  
+  
+  <!-- /.container -->
+
+  
+
+  <!-- (C) CONTAINER TO RENDER MAP -->
+  
+<div style="background-color: cornflowerblue;">
+  <div class="container my-4" >
+    <br>
+    <h2 class="text-center"> SOS Communicator </h2>
+     
+        <div class="form-group">
+            <label for="title"><strong>Name</strong></label>
+            <input type="text" class="form-control my-2" id="title" aria-describedby="emailHelp">
+            <small id="emailHelp" class="form-text text-muted">Add an item to the list</small>
+        </div>
+
+        <div class="form-group">
+            <label for="description"><strong>Email</strong></label>
+            <textarea class="form-control my-2" id="description" rows="1"></textarea>
+        </div>
+        
+
+        <button   id="add" class="btn btn-success">Add to list</button>
+        <button  id="clear" class="btn btn-danger" onclick="clearStorage()">Clear list</button>
+     
+
+    <div id="items" class="my-4">
+        <h2>Family Members/Friends</h2>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">SNo</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th> 
+                <th scope="col"></th> 
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <tr>
+                <th scope="row">1</th>
+                <td>Get some Coffee</td>
+                <td>You need coffee as you are a coder</td> 
+                <td><button class="btn btn-sm btn-primary">Delete</button></td> 
+              </tr>
+              
+            </tbody>
+          </table>
+    </div>
+</div>
+<br>
+</div>
+<div style="background-color: darkkhaki;">
+  <br>
+  <div class="container my-4">
+    <div id="items" class="my-4">
+      <h2> Collaborating Hospitals </h2>
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">SNo</th>
+              <th scope="col">Hospital Name</th>
+              <th scope="col">Location</th> 
+              <th scope="col"></th> 
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <tr>
+              <th scope="row">1</th>
+              <td>Hospital A</td>
+              <td>Berhampore</td> 
+              <td><button class="btn btn-sm btn-primary" onclick="sendmail('thka478591@gmail.com');">Send SOS</button></td> 
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Hospital B</td>
+              <td>Berhampore</td> 
+              <td><button class="btn btn-sm btn-primary" onclick="sendmail('thka478591@gmail.com');">Send SOS</button></td> 
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Hospital C</td>
+              <td>Berhampore</td> 
+              <td><button class="btn btn-sm btn-primary" onclick="sendmail('thka478591@gmail.com');">Send SOS</button></td> 
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>Hospital D</td>
+              <td>Berhampore</td> 
+              <td><button class="btn btn-sm btn-primary" onclick="sendmail('thka478591@gmail.com');">Send SOS</button></td> 
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        <br>
+  </div>
+  </div>
+</div>
+  <hr>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+  
+  
+  
+  <div id="map" style="width:100%; height:400px;"></div>
+  <div id="instructions"></div>
+  <!--footer-->
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <svg class="bi" width="30" height="24">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+        </a>
+        <span class="text-muted">© 2021 Company, Inc</span>
+      </div>
+
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+              <use xlink:href="#twitter"></use>
+            </svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+              <use xlink:href="#instagram"></use>
+            </svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+              <use xlink:href="#facebook"></use>
+            </svg></a></li>
+      </ul>
+    </footer>
+  </div>
+  </footer>
+  </div>
+  <script src="./index.js"></script>
+  <script>
+    function getAndUpdate(){
+        console.log("Updating List...");
+        tit = document.getElementById('title').value;
+        desc = document.getElementById('description').value;
+        if (localStorage.getItem('itemsJson')==null){
+            itemJsonArray = [];
+            itemJsonArray.push([tit, desc]);
+            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+        }
+        else{
+            itemJsonArrayStr = localStorage.getItem('itemsJson')
+            itemJsonArray = JSON.parse(itemJsonArrayStr);
+            itemJsonArray.push([tit, desc]);
+            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+        }
+        update();
+    }
+  
+    function update(){
+        if (localStorage.getItem('itemsJson')==null){
+            itemJsonArray = []; 
+            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+        } 
+        else{
+            itemJsonArrayStr = localStorage.getItem('itemsJson')
+            itemJsonArray = JSON.parse(itemJsonArrayStr); 
+        }
+        // Populate the table
+        let tableBody = document.getElementById("tableBody");
+        let str = "";
+        itemJsonArray.forEach((element, index) => {
+            str += `
+            <tr>
+            <th scope="row">${index + 1}</th>
+            <td>${element[0]}</td>
+            <td>${element[1]}</td> 
+            <td><button class="btn btn-sm btn-primary" onclick="deleted(${index})">Delete</button> <button class="btn btn-sm btn-success mx-2" onclick="sendmail('${element[1]}');">Share location</button><button class="btn btn-sm btn-dark mx-2" onclick="sendmail('${element[1]}');">Send SOS</button></td> 
+            </tr>`; 
+        });
+        tableBody.innerHTML = str;
+    }
+    
+    add = document.getElementById("add");
+    add.addEventListener("click", getAndUpdate);
+    update();
+    function deleted(itemIndex){
+        console.log("Delete", itemIndex);
+        itemJsonArrayStr = localStorage.getItem('itemsJson')
+        itemJsonArray = JSON.parse(itemJsonArrayStr);
+        // Delete itemIndex element from the array
+        itemJsonArray.splice(itemIndex, 1);
+        localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray));
+        update();
+  
+    }
+    function clearStorage(){
+        if (confirm("Do you areally want to clear?")){
+        console.log('Clearing the storage')
+        localStorage.clear();
+        update()
+        }
+    }
+  </script>
+    <script>
+function sendmail(eml){
+
+//       function getLocation() {
+//   if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(showPosition);
+//   } else { 
+//     console.log("Geolocation is not supported by this browser.");
+//   }
+// }
+
+// function showPosition(position) {
+//   x = position.coords.latitude ;
+//   y= position.coords.longitude;
+//   return x,y;
+// }
+
+var eml=eml;
+var lat
+var longi
+var longistr
+var latstr
+var msg="I am in trouble.Please reach out to me. "
+if('geolocation' in navigator) {
+  console.log('/* geolocation is available */')
+  navigator.geolocation.getCurrentPosition((position) => {
+  lat=position.coords.latitude;
+  longi=position.coords.longitude;
+  const latstr=""+lat
+  const longistr=""+longi
+  // console.log(latstr)
+  // console.log(longistr)
+  // console.log(typeof(latstr));
+  const msg="I am in trouble.Please reach out to me. "+"My location details have been provided in the form of latitudes and longitude. "+"\n Latitude: "+latstr+" Longitude: "+longistr
+  console.log(msg)
+  Email.send({
+    Host : "smtp.gmail.com",
+    Username : "cocosz75.tbm@gmail.com",
+    Password : "GooDpassword@75#",
+    To : eml,
+    From : "cocosz75.tbm@gmail.com",
+    Subject : "SOS",
+    Body : msg
+}).then(
+  message => {
+    if (message == 'OK') {
+          alert("Your message has been sent!!!✔✔✔");
+        } else {
+          alert("There is an error sending your message.")
+        }
+  }
+);
+
+});
+} else {
+  console.log('/* geolocation IS NOT available */')
+}    
+console.log(msg)
+    
+    
+  
+}
+  </script>
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    -->
+
+    <script>
+      window.watsonAssistantChatOptions = {
+          integrationID: "7b34e6a0-ff51-45dc-b65f-d3384ff7b4d7", // The ID of this integration.
+          region: "au-syd", // The region your integration is hosted in.
+          serviceInstanceID: "c7f89b0d-2325-4bbd-aec9-cf86f41c23c2", // The ID of your service instance.
+          onLoad: function (instance) { instance.render(); }
+      };
+      setTimeout(function () {
+          const t = document.createElement('script');
+          t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" +
+              (window.watsonAssistantChatOptions.clientVersion || 'latest') +
+              "/WatsonAssistantChatEntry.js"
+          document.head.appendChild(t);
+      });
+  </script>
+  <script>
+    // (B) GET GPS COODINATES + DRAW MAP
+    window.addEventListener("DOMContentLoaded", function () {
+      // (B1) INSERT ACCESS TOKEN HERE!
+      mapboxgl.accessToken = 'pk.eyJ1IjoidGFudmlyMDA3IiwiYSI6ImNrdmFrNHhtYTBpaHoydm56OThheDBycmEifQ.rPtoCRDTWzZe2E95U7-Wmw';
+
+      navigator.geolocation.getCurrentPosition(
+        // (B2) ON SUCCESSFULLY GETTING GPS COORDINATES
+        function (pos) {
+          // DRAW MAP
+          let map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/tanvir007/ckvakoa2d0j8115td3wn95jy5',
+            center: [pos.coords.longitude, pos.coords.latitude],
+            zoom: 13
+          });
+          const bounds = [
+            [pos.coords.longitude - 5, pos.coords.latitude - 5],
+            [pos.coords.longitude + 5, pos.coords.latitude + 5]];
+          map.setMaxBounds(bounds);
+
+          // an arbitrary start will always be the same
+          // only the end or destination will change
+          const start = [pos.coords.longitude, pos.coords.latitude];
+
+
+          // create a function to make a directions request
+          async function getRoute(end) {
+            // make a directions request using cycling profile
+            // an arbitrary start will always be the same
+            // only the end or destination will change
+            const query = await fetch(
+              `https://api.mapbox.com/directions/v5/mapbox/cycling/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
+              { method: 'GET' }
+            );
+            const json = await query.json();
+            const data = json.routes[0];
+            const route = data.geometry.coordinates;
+            const geojson = {
+              type: 'Feature',
+              properties: {},
+              geometry: {
+                type: 'LineString',
+                coordinates: route
+              }
+            };
+            // if the route already exists on the map, we'll reset it using setData
+            if (map.getSource('route')) {
+              map.getSource('route').setData(geojson);
+            }
+            // otherwise, we'll make a new request
+            else {
+              map.addLayer({
+                id: 'route',
+                type: 'line',
+                source: {
+                  type: 'geojson',
+                  data: geojson
+                },
+                layout: {
+                  'line-join': 'round',
+                  'line-cap': 'round'
+                },
+                paint: {
+                  'line-color': '#3887be',
+                  'line-width': 5,
+                  'line-opacity': 0.75
+                }
+              });
+            }
+            // get the sidebar and add the instructions
+            const instructions = document.getElementById('instructions');
+            const steps = data.legs[0].steps;
+
+            let tripInstructions = '';
+            for (const step of steps) {
+              tripInstructions += `<li>${step.maneuver.instruction}</li>`;
+            }
+            instructions.innerHTML = `<p><strong>Trip duration: ${Math.floor(
+              data.duration / 60
+            )} min 🚴 </strong></p><ol>${tripInstructions}</ol>`;// add turn instructions here at the end
+          }
+
+          map.on('load', () => {
+            // make an initial directions request that
+            // starts and ends at the same location
+            getRoute(start);
+
+            // Add starting point to the map
+            map.addLayer({
+              id: 'point',
+              type: 'circle',
+              source: {
+                type: 'geojson',
+                data: {
+                  type: 'FeatureCollection',
+                  features: [
+                    {
+                      type: 'Feature',
+                      properties: {},
+                      geometry: {
+                        type: 'Point',
+                        coordinates: start
+                      }
+                    }
+                  ]
+                }
+              },
+              paint: {
+                'circle-radius': 10,
+                'circle-color': '#3887be'
+              }
+            });
+            map.on('click', (event) => {
+              const coords = Object.keys(event.lngLat).map((key) => event.lngLat[key]);
+              const end = {
+                type: 'FeatureCollection',
+                features: [
+                  {
+                    type: 'Feature',
+                    properties: {},
+                    geometry: {
+                      type: 'Point',
+                      coordinates: coords
+                    }
+                  }
+                ]
+              };
+              if (map.getLayer('end')) {
+                map.getSource('end').setData(end);
+              } else {
+                map.addLayer({
+                  id: 'end',
+                  type: 'circle',
+                  source: {
+                    type: 'geojson',
+                    data: {
+                      type: 'FeatureCollection',
+                      features: [
+                        {
+                          type: 'Feature',
+                          properties: {},
+                          geometry: {
+                            type: 'Point',
+                            coordinates: coords
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  paint: {
+                    'circle-radius': 10,
+                    'circle-color': '#f30'
+                  }
+                });
+              }
+              getRoute(coords);
+            });// this is where the code from the next step will go
+          });
+          // DRAW MARKER
+          let marker = new mapboxgl.Marker()
+            .setLngLat([pos.coords.longitude, pos.coords.latitude])
+            .addTo(map);
+
+          let geocoder = new MapboxGeocoder({
+            // Initialize the geocoder
+            accessToken: mapboxgl.accessToken, // Set the access token
+            mapboxgl: mapboxgl, // Set the mapbox-gl instance
+            marker: false,// Do not use the default marker style
+            bbox: [pos.coords.longitude - 0.07255, pos.coords.latitude - 0.07255, pos.coords.longitude + 0.07255, pos.coords.latitude + 0.07255],
+            proximity: {
+              longitude: pos.coords.longitude,
+              latitude: pos.coords.latitude
+            }
+          });
+
+          // Add the geocoder to the map
+          map.addControl(geocoder);
+
+        },
+
+        // (B3) ON FAILING TO GET GPS COORDINATES
+        function (err) {
+          console.log(err);
+        },
+
+        // (B4) GPS OPTIONS
+        {
+          enableHighAccuracy: true,
+          timeout: 5000,
+          maximumAge: 0
+        }
+      );
+    });
+
+  </script>
+
+
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+</body>
+
+</html>
+
